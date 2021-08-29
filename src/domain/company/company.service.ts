@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Company } from './company.entity';
+import { SetCompanyDto } from './dto/SetCompanyDto.dto';
 
 @Injectable()
 export class CompanyService {
@@ -16,5 +17,9 @@ export class CompanyService {
 
 	getCompany(companyId: number) {
 		return this.companyRepository.findOne(companyId);
+	}
+
+	setCompany(setComanyDto: SetCompanyDto) {
+		return this.companyRepository.save(setComanyDto);
 	}
 }

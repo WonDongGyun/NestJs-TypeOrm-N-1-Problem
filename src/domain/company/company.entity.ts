@@ -1,4 +1,10 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+	Column,
+	Entity,
+	JoinColumn,
+	OneToMany,
+	PrimaryGeneratedColumn
+} from 'typeorm';
 import { Employee } from '../employee/employee.entity';
 import { TimeStamped } from '../TimeStamped/TimeStamped';
 

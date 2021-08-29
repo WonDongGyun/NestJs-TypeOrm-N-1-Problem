@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+	Column,
+	Entity,
+	JoinColumn,
+	ManyToOne,
+	PrimaryGeneratedColumn
+} from 'typeorm';
 import { Company } from '../company/company.entity';
 import { TimeStamped } from '../TimeStamped/TimeStamped';
 
@@ -10,6 +16,7 @@ export class Employee extends TimeStamped {
 	@Column({ type: 'varchar' })
 	employeeName: string;
 
-	@ManyToOne(() => Company, (company) => company.companyId)
+	@ManyToOne(() => Company, (company) => company.companyId, { eager: true })
+	@JoinColumn([{ name: 'companyId', referencedColumnName: 'companyId' }])
 	company: Company;
 }
