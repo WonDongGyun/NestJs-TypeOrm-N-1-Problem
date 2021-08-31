@@ -16,8 +16,9 @@ export class Company extends TimeStamped {
 	@Column({ type: 'varchar' })
 	companyName: string;
 
-	@OneToMany(() => Employee, (employee) => employee.employeeId, {
-		onDelete: 'CASCADE'
+	@OneToMany(() => Employee, (employee) => employee.company, {
+		onDelete: 'CASCADE',
+		lazy: true
 	})
 	employee: Employee[];
 }

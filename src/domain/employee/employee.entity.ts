@@ -16,7 +16,7 @@ export class Employee extends TimeStamped {
 	@Column({ type: 'varchar' })
 	employeeName: string;
 
-	@ManyToOne(() => Company, (company) => company.companyId, { eager: true })
+	@ManyToOne(() => Company, (company) => company.employee)
 	@JoinColumn([{ name: 'companyId', referencedColumnName: 'companyId' }])
 	company: Company;
 }
