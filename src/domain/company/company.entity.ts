@@ -20,5 +20,5 @@ export class Company extends TimeStamped {
 		onDelete: 'CASCADE',
 		lazy: true
 	})
-	employee: Employee[];
+	employee: Promise<Employee[]>;
 }
